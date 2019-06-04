@@ -21,7 +21,7 @@ class SmurfForm extends Component {
       height: event.target.height.value
     });
 
-    axios.post('http://localhost:3000/smurfs', this.state)
+    axios.post('http://localhost:3300/api/contacts', this.state)
       .then(res => {
         console.log(res.data);
         this.setState({
