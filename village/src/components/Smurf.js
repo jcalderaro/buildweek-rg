@@ -1,19 +1,15 @@
 import React from 'react';
 
-const Smurf = props => {
+const Contact = props => {
+  console.log("Hi")
   return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} :: Home </strong>
-      <p>{props.age} :: Work </p>
+    <div>
+      <h3>{props.first}:: First </h3>
+      <h3>{props.last}:: Last </h3>
+      <h3>{props.phone}:: Phone </h3>
+      <h3>{props.relation}:: Relation </h3>
     </div>
   );
 };
 
-Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
-};
-
-export default Smurf;
+export default Contact;

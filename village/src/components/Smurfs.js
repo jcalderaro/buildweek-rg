@@ -1,49 +1,47 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Smurf from './Smurf';
+import Contact from './Smurf';
 import '../App.css';
 
-class Smurfs extends Component {
-  deleteSmurf = (id) => {
-    axios.delete(`http://localhost:3000/smurfs/${id}`)
-      .then(res => {
-        console.log(res.data[{ id }]);
-        window.location.reload();
-      })
-      .catch(err => {
-        console.log(err);
-      })
+class Contacts extends Component {
+
+  state = {
+    contacts:[]
+  }
+
+  componentDidMount(){
+    axios.get(`http://localhost:3300/api/contacts`)
+    .then(res => {
+      this.setState({contacts:res.data})  
+  }
+)
   }
 
   render() {
     return (
-      <div className="Smurfs">
+      <div>
         <header>
           <h1>RGE Contact List</h1>
           <Link to='/'><button className='headerBtn'>Add A New Contact</button></Link>
         </header>
-        <ul>
-          {this.props.smurfs.map(smurf => {
+        <div>
+          {this.state.contacts.map(contact => {
             return (
-              <Smurf
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-                smurf={smurf}
+              <Contact key = {contact.id}
+                id={contact.id}
+                first={contact.contactFirst}
+                last={contact.contactLast}
+                phone={contact.contactPhone}
+                relation={contact.relation}
+                userid={contact.user_id}
               />
             );
           })}
-        </ul>
+        </div>
       </div>
     );
   }
 }
 
-Smurf.defaultProps = {
-  smurfs: [],
-};
-
-export default Smurfs;
+export default Contacts;
