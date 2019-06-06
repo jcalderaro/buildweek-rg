@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Contact = props => {
-  console.log("Hi")
+  console.log("Success")
   return (
     <div>
       <h3>{props.first}:: First </h3>

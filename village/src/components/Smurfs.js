@@ -28,15 +28,23 @@ class Contacts extends Component {
         <div>
           {this.state.contacts.map(contact => {
             return (
-              <Contact key = {contact.id}
+            <div key = {contact.id}>
+              
+              {contact.id}
+              {contact.contactFirst}
+              {contact.contactLast}
+              {contact.contactPhone}
+              {contact.relation}
+            </div>
+              /*<Contact key = {contact.id}
                 id={contact.id}
                 first={contact.contactFirst}
                 last={contact.contactLast}
                 phone={contact.contactPhone}
                 relation={contact.relation}
                 userid={contact.user_id}
-              />
-            );
+              />*/
+            )
           })}
         </div>
       </div>
