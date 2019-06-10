@@ -11,7 +11,7 @@ class Contacts extends Component {
   }
 
   componentDidMount(){
-    axios.get(`http://localhost:3300/api/contacts`)
+    axios.get(`https://build-week-web19.herokuapp.com/api/contacts`)
     .then(res => {
       this.setState({contacts:res.data})  
   }
